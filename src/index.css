@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+:root {
+	--gray1: rgb(14, 14, 14);
+	--gray2: rgb(0, 0, 0);
+	--white1: rgb(238, 238, 238);
+}
+
+html{
+    background-color: var(--gray1);
+}
+
