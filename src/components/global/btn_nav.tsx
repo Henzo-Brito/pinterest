@@ -1,4 +1,4 @@
-import Logo from "../../images/logo.png";
+import Logo from "@img/logo.png";
 
 type Props = {
 	func: () => void;
@@ -9,7 +9,7 @@ type Props = {
 export default function BtnNav({ func, image_str, text }: Props) {
 	if (image_str === "logo") {
 		return (
-			<button type="button" className="mb-5 cursor-pointer" onClick={func}>
+			<button type="button" className="mb-5 cursor-pointer hover:-translate-y-1/6" onClick={func}>
 				<img src={Logo} width={40} alt="Logo do Pinterest" />
 			</button>
 		);

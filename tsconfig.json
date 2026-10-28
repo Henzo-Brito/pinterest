@@ -3,5 +3,13 @@
 	"references": [
 		{ "path": "./tsconfig.app.json" },
 		{ "path": "./tsconfig.node.json" }
-	]
+	],
+	"compilerOptions": {
+		"paths": {
+			"@/*": ["./src/*"],
+			"@comp/*": ["./src/components/*"],
+			"@store/*": ["./src/store/*"],
+			"@img/*": ["./src/images/*"]
+		}
+	}
 }

@@ -21,6 +21,12 @@
 		"noUnusedParameters": true,
 		"erasableSyntaxOnly": false,
 		"noFallthroughCasesInSwitch": true,
+		"paths": {
+			"@/*": ["./src/*"],
+			"@comp/*": ["./src/components/*"],
+			"@img/*": ["./src/images/*"],
+			"@store/*": ["./src/store/*"],
+		}
 	},
 	"include": ["src"]
 }

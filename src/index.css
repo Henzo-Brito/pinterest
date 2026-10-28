@@ -1,9 +1,12 @@
 @import "tailwindcss";
 
 :root {
-	--gray1: rgb(31, 31, 31);
+	--gray1: rgb(46, 46, 46);
 	--gray2: rgb(0, 0, 0);
 	--gray3: rgb(143, 143, 143);
+	--gray4: rgb(63, 63, 63);
+	--primary1: rgb(41, 144, 240);
+	--primary2: rgba(41, 144, 240, 0.26);
 	--white1: rgb(238, 238, 238);
 }
 
@@ -11,3 +14,15 @@ html{
     background-color: var(--gray2);
 }
 
+*{
+	transition: all .25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scrollbar-hide {
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+	display: none;
+}
