@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
 :root {
-	--gray1: rgb(14, 14, 14);
+	--gray1: rgb(31, 31, 31);
 	--gray2: rgb(0, 0, 0);
+	--gray3: rgb(143, 143, 143);
 	--white1: rgb(238, 238, 238);
 }
 
 html{
-    background-color: var(--gray1);
+    background-color: var(--gray2);
 }
 
