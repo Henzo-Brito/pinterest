@@ -1,26 +1,54 @@
 import { useState } from "react";
-import BtnNav from "./btn_nav";
+import { useNavigate } from "react-router-dom";
 
-export default function SearchBar() {
-	const [click, setClick] = useState<boolean>(false);
+type Props = {
+	initialValue?: string;
+	onSearch?: (query: string) => void;
+};
+
+export default function SearchBar({ initialValue = "", onSearch }: Props) {
+	const [focused, setFocused] = useState(false);
+	const [query, setQuery] = useState(initialValue);
+	const navigate = useNavigate();
+
+	function handleSearch() {
+		const q = query.trim();
+		if (!q) return;
+		if (onSearch) {
+			onSearch(q);
+		} else {
+			navigate(`/explore?q=${encodeURIComponent(q)}`);
+		}
+	}
+
+	function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+		if (e.key === "Enter") handleSearch();
+	}
 
 	return (
 		<div
-			className={`bg-(--gray1) p-2 pl-4 pr-3 rounded-2xl w-full h-15 hover:bg-(--gray4) flex ${
-				click ? "border border-(--white1)" : "border-none"
-			}`}
+			className={`bg-(--gray1) p-2 pl-4 pr-3 rounded-2xl w-full h-15 flex items-center gap-2 ${
+				focused ? "border border-(--white1)" : "border border-transparent"
+			} hover:bg-(--gray4)`}
 		>
+			<i className="fa-solid fa-magnifying-glass text-(--gray3) text-lg" />
 			<input
+				value={query}
+				onChange={(e) => setQuery(e.target.value)}
+				onKeyDown={handleKeyDown}
 				placeholder="Pesquisar"
-				onFocus={() => {
-					setClick(true);
-				}}
-				onBlur={() => {
-					setClick(false);
-				}}
-				className="w-full outline-0 placeholder:text-(--gray3) text-(--white1) font-medium text-xl"
+				onFocus={() => setFocused(true)}
+				onBlur={() => setFocused(false)}
+				className="w-full outline-0 placeholder:text-(--gray3) text-(--white1) font-medium text-xl bg-transparent"
 			/>
-			<BtnNav func={() => {}} text="" image_str="fa-regular fa-camera"></BtnNav>
+			<button
+				type="button"
+				title="Busca por imagem"
+				onClick={() => {}}
+				className="p-2 rounded-xl hover:bg-(--gray1) cursor-pointer"
+			>
+				<i className="fa-regular fa-camera text-(--white1) text-xl" />
+			</button>
 		</div>
 	);
 }
