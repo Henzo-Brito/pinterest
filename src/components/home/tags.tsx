@@ -10,7 +10,7 @@ export default function BtnNav() {
 					key={e.id}
 					type="button"
 					className={
-						`p-1.5 px-3 rounded-full text cursor-pointer  ` +
+						`p-1.5 px-3 mt-2 rounded-full text cursor-pointer  ` +
 						(e.id === selectedTag
 							? "bg-(--primary1) text-(--gray2)"
 							: "text-(--white1) hover:-translate-y-1/10")
